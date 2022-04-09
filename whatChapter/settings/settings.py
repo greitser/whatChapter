@@ -29,7 +29,7 @@ POSTGRES_PORT = env.str("POSTGRES_PORT")
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-n^2e_a6qw2=tm(18+9!fn^$5$shw48b3bi2j^n%l8!s0o7h5wm"
+SECRET_KEY = env.str("DJANGO_SEKRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
