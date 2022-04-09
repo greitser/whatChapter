@@ -6,7 +6,4 @@ from whatChapter.apps.whatChapter.models import Studio
 class StudioFilterSet(FilterSet):
     class Meta:
         model = Studio
-        fields = [
-            "name",
-            "rating",
-        ]
+        fields = ["name", "rating"]

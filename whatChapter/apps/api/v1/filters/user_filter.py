@@ -12,10 +12,4 @@ class UserFilterSet(FilterSet):
 
     class Meta:
         model = User
-        fields = [
-            "username",
-            "id",
-            "email",
-            "first_name",
-            "last_name",
-        ]
+        fields = ["username", "id", "email", "first_name", "last_name"]

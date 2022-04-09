@@ -56,7 +56,6 @@ class Anime(models.Model):
         (STATUS_FINISH, "status_finish"),
         (STATUS_WAIT, "status_wait"),
         (STATUS_ISSUED, "status_wait"),
-
     )
     id = models.UUIDField(
         unique=True, primary_key=True, editable=False, default=uuid.uuid4

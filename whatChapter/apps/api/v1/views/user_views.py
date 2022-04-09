@@ -24,23 +24,19 @@ class UserViewSet(
     viewsets.GenericViewSet,
 ):
     authentication_classes = (JWTAuthentication,)
-    authentication_action_classes = {
-        "create": tuple(),
-    }
+    authentication_action_classes = {"create": tuple()}
     serializer_class = serializers.UserSerializer
     serializer_action_classes = {"create": serializers.UserCreateSerializer}
     permission_classes = (IsOwner,)
-    permission_action_classes = {"create": (permissions.AllowAny,), "list": (permissions.IsAdminUser,), }
+    permission_action_classes = {
+        "create": (permissions.AllowAny,),
+        "list": (permissions.IsAdminUser,),
+    }
 
     pagination_class = LimitOffsetPagination
     filterset_class = filters.UserFilterSet
     filter_backends = (OrderingFilter, DjangoFilterBackend)
-    ordering_fields = (
-        "username",
-        "email",
-        "first_name",
-        "last_name",
-    )
+    ordering_fields = ("username", "email", "first_name", "last_name")
     ordering = ("-date_joined",)
 
     INVALID_PASSWORD_DATA = {

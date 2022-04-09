@@ -5,24 +5,22 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('whatChapter', '0003_auto_20220408_1847'),
-    ]
+    dependencies = [("whatChapter", "0003_auto_20220408_1847")]
 
     operations = [
         migrations.AddField(
-            model_name='anime',
-            name='image',
-            field=models.ImageField(null=True, upload_to=''),
+            model_name="anime",
+            name="image",
+            field=models.ImageField(null=True, upload_to=""),
         ),
         migrations.AddField(
-            model_name='genre',
-            name='image',
-            field=models.ImageField(null=True, upload_to=''),
+            model_name="genre",
+            name="image",
+            field=models.ImageField(null=True, upload_to=""),
         ),
         migrations.AddField(
-            model_name='studio',
-            name='image',
-            field=models.ImageField(null=True, upload_to=''),
+            model_name="studio",
+            name="image",
+            field=models.ImageField(null=True, upload_to=""),
         ),
     ]

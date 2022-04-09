@@ -5,19 +5,17 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('whatChapter', '0004_auto_20220409_1536'),
-    ]
+    dependencies = [("whatChapter", "0004_auto_20220409_1536")]
 
     operations = [
         migrations.AddField(
-            model_name='anime',
-            name='approved',
+            model_name="anime",
+            name="approved",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='studio',
-            name='approved',
+            model_name="studio",
+            name="approved",
             field=models.BooleanField(default=False),
         ),
     ]

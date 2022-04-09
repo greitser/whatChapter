@@ -5,14 +5,20 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('whatChapter', '0006_anime_chapter'),
-    ]
+    dependencies = [("whatChapter", "0006_anime_chapter")]
 
     operations = [
         migrations.AddField(
-            model_name='anime',
-            name='status',
-            field=models.CharField(choices=[('status_finish', 'status_finish'), ('status_wait', 'status_wait'), ('status_issued', 'status_wait')], default='status_wait', max_length=15),
-        ),
+            model_name="anime",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("status_finish", "status_finish"),
+                    ("status_wait", "status_wait"),
+                    ("status_issued", "status_wait"),
+                ],
+                default="status_wait",
+                max_length=15,
+            ),
+        )
     ]

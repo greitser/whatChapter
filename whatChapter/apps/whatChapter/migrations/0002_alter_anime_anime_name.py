@@ -5,14 +5,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('whatChapter', '0001_initial'),
-    ]
+    dependencies = [("whatChapter", "0001_initial")]
 
     operations = [
         migrations.AlterField(
-            model_name='anime',
-            name='anime_name',
+            model_name="anime",
+            name="anime_name",
             field=models.CharField(max_length=255),
-        ),
+        )
     ]

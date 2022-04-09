@@ -5,14 +5,10 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('whatChapter', '0005_auto_20220409_1552'),
-    ]
+    dependencies = [("whatChapter", "0005_auto_20220409_1552")]
 
     operations = [
         migrations.AddField(
-            model_name='anime',
-            name='chapter',
-            field=models.IntegerField(null=True),
-        ),
+            model_name="anime", name="chapter", field=models.IntegerField(null=True)
+        )
     ]
