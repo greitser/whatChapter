@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: What Chapter
+  version: 1.0.0
+  description: Find chapter by last series anime
+paths:
+  /api/v2/auth/invalidate/:
+    post:
+      operationId: api_v2_auth_invalidate_create
+      description: |-
+        API View that checks the veracity of a token, returning the token if it
+        is valid.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyJSONWebToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/VerifyJSONWebToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/VerifyJSONWebToken'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyJSONWebToken'
+          description: ''
+  /api/v2/auth/obtain/:
+    post:
+      operationId: api_v2_auth_obtain_create
+      description: |-
+        API View that receives a POST with a user's username and password.
+
+        Returns a JSON Web Token that can be used for authenticated requests.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JSONWebToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JSONWebToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JSONWebToken'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONWebToken'
+          description: ''
+  /api/v2/auth/refresh/:
+    post:
+      operationId: api_v2_auth_refresh_create
+      description: |-
+        API View that returns a refreshed token (with new expiration) based on
+        existing token
+
+        If 'orig_iat' field (original issued-at-time) is found, will first check
+        if it's within expiration window, then copy it to the new token
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshJSONWebToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RefreshJSONWebToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RefreshJSONWebToken'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshJSONWebToken'
+          description: ''
+components:
+  schemas:
+    JSONWebToken:
+      type: object
+      description: |-
+        Serializer class used to validate a username and password.
+
+        'username' is identified by the custom UserModel.USERNAME_FIELD.
+
+        Returns a JSON Web Token that can be used to authenticate later calls.
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+    RefreshJSONWebToken:
+      type: object
+      description: Refresh an access token.
+      properties:
+        token:
+          type: string
+      required:
+      - token
+    VerifyJSONWebToken:
+      type: object
+      description: Check the veracity of an access token.
+      properties:
+        token:
+          type: string
+      required:
+      - token

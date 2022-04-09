@@ -1,0 +1,22 @@
+# pycharm
+.idea/
+
+# Python
+*.pyc
+
+
+
+
+# code quality
+/.mypy_cache
+/.pytest_cache
+.coverage
+.coverage.*
+
+# application files
+/.env
+
+
+# static files
+static/
+media/
